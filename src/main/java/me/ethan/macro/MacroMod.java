@@ -27,7 +27,6 @@ import java.util.Map;
 public class MacroMod {
 
     private static MacroMod instance;
-
     private MacroManager macroManager;
 
     @Mod.EventHandler
@@ -66,15 +65,14 @@ public class MacroMod {
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
+    public void onInitialization(FMLInitializationEvent event) {
         ClientCommandHandler.instance.registerCommand(new MacroCommand(this));
     }
 
     @Mod.EventHandler
-    public void init(FMLPostInitializationEvent event) {
+    public void onPostInitialization(FMLPostInitializationEvent event) {
         FMLCommonHandler.instance().bus().register(this);
     }
-
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
