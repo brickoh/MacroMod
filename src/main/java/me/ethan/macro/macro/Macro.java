@@ -46,27 +46,14 @@ public class Macro {
             if (macrosFile.exists()) {
                 String fileContent = new String(Files.readAllBytes(macrosFile.toPath()));
                 macrosData = new JsonParser().parse(fileContent).getAsJsonObject();
-
-                // Check if the macro with the specified key exists
                 if (macrosData.has(String.valueOf(key))) {
-                    // Remove the macro from the JSON data
                     macrosData.remove(String.valueOf(key));
-
-                    // Write the updated JSON data back to the file
                     Files.write(macrosFile.toPath(), macrosData.toString().getBytes());
-
-                    // Remove the macro from the cache
                     MacroMod.getInstance().getMacroManager().removeMacroFromCache(this);
-                } else {
-                    // Handle the case where the macro with the specified key does not exist
-                    System.out.println("Macro with key " + key + " does not exist.");
                 }
-            } else {
-                // Handle the case where the macros file does not exist
-                System.out.println("Macros file does not exist.");
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception appropriately
+            e.printStackTrace();
         }
     }
 
