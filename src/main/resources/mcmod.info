@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "${modid}",
+    "name": "MacroMod",
+    "description": "Simple Mod that allows people to bind text/commands to a key",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/brickoh/MacroMod",
+    "updateUrl": "",
+    "authorList": [
+      "brickoh"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
